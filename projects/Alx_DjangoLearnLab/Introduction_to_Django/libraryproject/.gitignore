@@ -5,4 +5,10 @@ __pycache__/
 .Python
 env/
 venv/
+.venv/
+.env
 *.sqlite3
+*.db
+.DS_Store
+.vscode/
+*.log
