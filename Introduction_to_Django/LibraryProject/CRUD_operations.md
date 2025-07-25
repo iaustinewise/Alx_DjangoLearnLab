@@ -1,36 +1,65 @@
-# CRUD Operations Documentation
+# CRUD Operations for Book Model
 
-This document outlines the basic CRUD (Create, Read, Update, Delete) operations performed on the `Book` model in the `bookshelf` app.
 
-## Create
+## Individual Markdown Files
+
+### create.md
+```markdown
+# Create Operation
+
+**Command:**
 ```python
 from bookshelf.models import Book
-book = Book(title="1984", author="George Orwell", publication_year=1949)
-book.save()
+book = Book.objects.create(title="1984", author="George Orwell", publication_year=1949)
 
-- Expected Output: No error, book created successfully.
-
-## Read
+**Expected Output:**
 ```python
+# A Book instance is created with id=1, no output is displayed in the shell
+
+### retrieve.md
+```markdown
+# Retrieve Operation
+
+**Command:**
+```python
+from bookshelf.models import Book
 book = Book.objects.get(title="1984")
 print(book.title, book.author, book.publication_year)
 
-- Expected Output: 1984 George Orwell 1949
+**Expected Output:**
+```python
+# 1984 George Orwell 1949
 
 
-## Update
-'''python
+### update.md
+```markdown
+# Update Operation
+
+**Command:**
+```python
+from bookshelf.models import Book
+book = Book.objects.get(title="1984")
 book.title = "Nineteen Eighty-Four"
 book.save()
-print(book.title, book.author, book.publication_year)
+print(book.title)
 
-- Expected Output: Nineteen Eighty-Four George Orwell 1949
-Delete
+**Expected Output:**
+```python
+# Nineteen Eighty-four
 
-## Delete
-'''python
+
+### delete.md
+```markdown
+# Delete Operation
+
+**Command:**
+```python
+from bookshelf.models import Book
+book = Book.objects.get(title="Nineteen Eighty-Four")
 book.delete()
-Book.objects.all()
+print(Book.objects.all())
 
-- Expected Output: (1, {'bookshelf.Book': 1}) followed by <QuerySet []>
+**Expected Output:**
+```python
+# <QuerySet []> 
 
